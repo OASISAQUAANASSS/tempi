@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>www.OasisAqua.com</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+:root{--navy:#063b59;--blue:#087eaa;--aqua:#24c8c4;--mint:#dff8f2;--coral:#ff786b;--sand:#fff8ec;--text:#17394b;--muted:#607b89;--white:#fff;--shadow:0 15px 40px #063b5914}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:'Nunito',sans-serif;color:var(--text);line-height:1.6;background:#fff}
+img{max-width:100%;display:block;object-fit:cover}
+a{text-decoration:none;color:inherit}
+button,input,textarea{font:inherit}
+.container{width:min(1120px,92%);margin:auto}
+.topbar{background:var(--navy);color:#fff;text-align:center;padding:8px 15px;font-size:.85rem;font-weight:700}
+header{position:sticky;top:0;z-index:20;background:#ffffffed;backdrop-filter:blur(12px);box-shadow:0 4px 20px #063b590c}
+nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0}
+.logo{font-size:1.5rem;font-weight:900;color:var(--navy);white-space:nowrap}
+.logo span{color:var(--aqua)}
+.navlinks{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.navlinks a{font-size:.88rem;font-weight:800;color:var(--navy)}
+.navlinks a:hover{color:var(--blue)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--aqua);color:var(--navy);padding:12px 22px;border:0;border-radius:50px;font-weight:900;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-2px);filter:brightness(.97)}
+.btn.coral{background:var(--coral);color:#fff}
+.btn.white{background:#fff;color:var(--navy)}
+.hero{min-height:620px;display:flex;align-items:center;color:#fff;background:linear-gradient(90deg,#042f4be8 0%,#064f69a8 48%,#064f6920 100%),url('https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=1900&q=90') center/cover}
+.hero-content{padding:85px 0}
+.pill{display:inline-block;background:#ffffff24;border:1px solid #ffffff55;border-radius:40px;padding:7px 14px;font-weight:800;margin-bottom:20px}
+.hero h1{font-size:clamp(2.8rem,6vw,5.3rem);line-height:1.02;max-width:750px;font-weight:900;letter-spacing:-2px}
+.hero h1 span{color:#8ff2e6}
+.hero p{font-size:1.15rem;max-width:600px;margin:22px 0 28px;color:#effcff}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-note{margin-top:30px;font-weight:800;color:#dff8f2}
+.stats{background:var(--navy);color:#fff;padding:24px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;text-align:center}
+.stat strong{display:block;font-size:1.4rem;color:#8ff2e6}
+.stat span{font-size:.9rem;color:#d3e9ef}
+section{padding:85px 0}
+.soft{background:#f1fbfa}
+.sand{background:var(--sand)}
+.section-head{text-align:center;max-width:720px;margin:0 auto 42px}
+.eyebrow{color:var(--blue);font-size:.82rem;text-transform:uppercase;letter-spacing:2px;font-weight:900}
+.section-head h2,.feature h2{font-size:clamp(2rem,4vw,3rem);line-height:1.12;color:var(--navy);margin:8px 0 14px;font-weight:900;letter-spacing:-1px}
+.section-head p{color:var(--muted)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:1px solid #e5f0f2}
+.card img{width:100%;height:220px}
+.card-body{padding:23px}
+.card-body h3{font-size:1.25rem;color:var(--navy);margin:5px 0 8px}
+.card-body p{color:var(--muted);font-size:.95rem}
+.card-tag{display:inline-block;color:#087eaa;background:#e5f8f7;border-radius:30px;padding:5px 11px;font-size:.75rem;font-weight:900}
+.feature{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:55px}
+.feature img{width:100%;height:430px;border-radius:25px;box-shadow:var(--shadow)}
+.feature p{color:var(--muted);margin:12px 0 20px}
+.checks{list-style:none;display:grid;gap:9px;margin:20px 0 25px}
+.checks li:before{content:'✓';color:#079e9a;font-weight:900;margin-right:10px}
+.ticket-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;margin-bottom:35px}
+.ticket{background:#fff;border:1px solid #dcecf1;border-radius:22px;padding:28px;text-align:center;box-shadow:var(--shadow)}
+.ticket.featured{border:2px solid var(--aqua);transform:translateY(-8px)}
+.ticket h3{font-size:1.3rem;color:var(--navy)}
+.price{font-size:2.8rem;font-weight:900;color:var(--blue);margin:12px 0}
+.ticket p{color:var(--muted);font-size:.92rem}
+.buybox{max-width:800px;margin:auto;padding:32px;background:#f1fbfa;border-radius:24px;border:1px solid #d7efec}
+.buybox h3{font-size:1.5rem;color:var(--navy);margin-bottom:20px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-size:.9rem;font-weight:800;color:var(--navy)}
+.field input,.field textarea{width:100%;padding:12px 14px;border:1px solid #c9e0e7;border-radius:12px;background:#fff;color:var(--text);outline:none}
+.field input:focus,.field textarea:focus{border-color:var(--aqua);box-shadow:0 0 0 3px #24c8c422}
+.summary{background:#fff;border-radius:15px;padding:18px 20px;margin:20px 0}
+.summary p{display:flex;justify-content:space-between;padding:5px 0;color:var(--muted)}
+.summary .total{border-top:1px solid #e3eff1;margin-top:8px;padding-top:13px;font-size:1.2rem;color:var(--navy);font-weight:900}
+.notice{font-size:.82rem;color:var(--muted);margin-top:14px}
+#buyResult,#contactResult{display:none;margin-top:15px;background:#e0f8ee;color:#126444;padding:14px;border-radius:12px;font-weight:800}
+.menu-item{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #e5eef0;padding:10px 0}
+.menu-item span{font-weight:900;color:var(--blue);white-space:nowrap}
+.schedule{margin-top:20px;background:#f1fbfa;padding:18px;border-radius:15px}
+.schedule h3{color:var(--navy);margin-bottom:8px}
+.slot{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #dcece9}
+.slot:last-child{border:0}
+.perks{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.perk{padding:24px 18px;text-align:center;border:1px solid #e1eef0;border-radius:18px;background:#fff}
+.perk .emoji{font-size:2rem;margin-bottom:8px}
+.perk h3{color:var(--navy);margin-bottom:6px}
+.perk p{font-size:.9rem;color:var(--muted)}
+.gallery{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:190px 190px;gap:14px}
+.gallery img{height:100%;border-radius:17px}
+.gallery img:first-child{grid-row:span 2}
+.faq{max-width:850px;margin:auto;display:grid;gap:12px}
+details{background:white;border:1px solid #dcecf1;border-radius:14px;padding:17px 20px}
+summary{cursor:pointer;font-weight:800;color:var(--navy)}
+details p{color:var(--muted);padding-top:12px}
+.mapbox{background:#dff5f4;border-radius:24px;padding:45px 25px;text-align:center}
+.map-icon{font-size:3rem}
+.contact{background:var(--navy);color:white;border-radius:25px;padding:35px}
+.contact h2{font-size:2rem;margin-bottom:10px}.contact p{color:#d3eef5;margin-bottom:20px}
+.contact .field label{color:white}
+footer{background:#032f49;color:#fff;padding:45px 0 20px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px;margin-bottom:28px}
+footer h3{color:#8ff2e6;margin-bottom:12px}footer p,footer a{color:#d0e7ef;font-size:.92rem}
+footer a{display:block;margin:6px 0}footer a:hover{color:white}
+.copyright{border-top:1px solid #ffffff25;padding-top:18px;text-align:center;color:#b9d5df;font-size:.82rem}
+@media(max-width:850px){nav{flex-direction:column;padding:14px 0}.navlinks{gap:12px}.grid-3,.ticket-grid{grid-template-columns:1fr 1fr}.perks{grid-template-columns:1fr 1fr}.feature{gap:25px}.hero{min-height:570px}}
+@media(max-width:600px){section{padding:62px 0}.grid-3,.grid-2,.ticket-grid,.feature,.footer-grid{grid-template-columns:1fr}.ticket.featured{transform:none}.stats-grid{grid-template-columns:1fr 1fr}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.gallery{grid-template-columns:1fr 1fr;grid-template-rows:160px 160px 160px}.gallery img:first-child{grid-row:auto;grid-column:span 2}.feature img{height:280px}.hero h1{letter-spacing:-1px}}
+</style>
+</head>
+<body>
+<div class="topbar">☀️ ¡La temporada de diversión te espera! · Proyecto escolar de demostración</div>
+<header>
+<nav class="container">
+<a class="logo" href="#inicio">www.OasisAqua.com 🌊</a>
+<div class="navlinks">
+<a href="#inicio">Inicio</a><a href="#atracciones">Atracciones</a><a href="#entradas">Entradas</a>
+<a href="#restaurante">Restaurante</a><a href="#aquadance">AquaDance</a><a href="#info">Información</a><a href="#ubicacion">Ubicación</a>
+</div>
+<a class="btn" href="#entradas">🎟 Comprar</a>
+</nav>
+</header>
+<main>
+<section class="hero" id="inicio"><div class="container hero-content">
+<span class="pill">📍 Retamar · Almería</span>
+<h1>El verano tiene un nuevo <span>oasis.</span></h1>
+<p>Deslízate, salpica, saborea y baila. Un mundo de diversión acuática para compartir con familia y amigos.</p>
+<div class="hero-actions"><a class="btn coral" href="#entradas">Comprar entradas →</a><a class="btn white" href="#atracciones">Explorar el parque</a></div>
+<div class="hero-note">🌴 Atracciones · 🍔 Restaurante · 🎶 Música · 💦 Diversión</div>
+</div></section>
+
+<div class="stats"><div class="container stats-grid">
+<div class="stat"><strong>Todo el día</strong><span>de diversión</span></div>
+<div class="stat"><strong>3 zonas</strong><span>para todas las edades</span></div>
+<div class="stat"><strong>Verano</strong><span>sol y agua</span></div>
+<div class="stat"><strong>100%</strong><span>ambiente familiar</span></div>
+</div></div>
+
+<section id="bienvenida"><div class="container feature">
+<img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1000&q=85" alt="Piscina de parque acuático">
+<div><span class="eyebrow">Bienvenidos a OasisAqua</span><h2>Mucho más que un parque acuático</h2>
+<p>Prepara el bañador y las ganas de pasarlo bien. En OasisAqua hemos imaginado un lugar donde cada visitante encuentra su plan perfecto: emoción, descanso, comida rica y música.</p>
+<ul class="checks"><li>Planes para familias y grupos de amigos</li><li>Zonas de agua y espacios de descanso</li><li>Restaurante y mini discoteca</li><li>Un día completo de experiencias</li></ul>
+<a class="btn" href="#info">Conoce el parque</a></div>
+</div></section>
+
+<section class="soft" id="atracciones"><div class="container">
+<div class="section-head"><span class="eyebrow">Adrenalina y chapuzones</span><h2>Encuentra tu próxima aventura</h2><p>Estas son algunas de las zonas que forman parte del parque imaginario OasisAqua.</p></div>
+<div class="grid-3">
+<article class="card"><img src="https://images.unsplash.com/photo-1562347810-18a5b7b3a6b7?auto=format&fit=crop&w=800&q=85" alt="Toboganes"><div class="card-body"><span class="card-tag">Emoción</span><h3>Toboganes extremos</h3><p>Curvas, velocidad y mucha diversión para quienes buscan emociones fuertes.</p></div></article>
+<article class="card"><img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=85" alt="Piscina"><div class="card-body"><span class="card-tag">Relax</span><h3>Piscina Oasis</h3><p>Un espacio para refrescarse, nadar y disfrutar de un rato tranquilo.</p></div></article>
+<article class="card"><img src="https://images.unsplash.com/photo-1564429238817-393bd4286b2d?auto=format&fit=crop&w=800&q=85" alt="Zona infantil"><div class="card-body"><span class="card-tag">Peques</span><h3>Isla Infantil</h3><p>Juegos de agua y pequeñas aventuras pensadas para los más pequeños.</p></div></article>
+<article class="card"><img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=85" alt="Agua y olas"><div class="card-body"><span class="card-tag">Diversión</span><h3>Río Aventura</h3><p>Déjate llevar por un recorrido refrescante y disfruta del paisaje.</p></div></article>
+<article class="card"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=85" alt="Playa tropical"><div class="card-body"><span class="card-tag">Descanso</span><h3>Playa Sol</h3><p>Zona de tumbonas y ambiente veraniego para descansar entre baños.</p></div></article>
+<article class="card"><img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=85" alt="Familia"><div class="card-body"><span class="card-tag">En familia</span><h3>Zona Familiar</h3><p>Un punto de encuentro para compartir juegos y buenos momentos.</p></div></article>
+</div></div></section>
+
+<section id="entradas"><div class="container">
+<div class="section-head"><span class="eyebrow">Tu día empieza aquí</span><h2>Entradas y tarifas</h2><p>Selecciona tus entradas y calcula el precio de tu visita. Tarifas inventadas para esta demostración escolar.</p></div>
+<div class="ticket-grid">
+<div class="ticket"><h3>Entrada adulto</h3><div class="price">25 €</div><p>A partir de 13 años</p><p>Acceso general al parque</p></div>
+<div class="ticket featured"><span class="card-tag">La favorita</span><h3>Entrada infantil</h3><div class="price">18 €</div><p>De 4 a 12 años</p><p>Acceso general al parque</p></div>
+<div class="ticket"><h3>Peques</h3><div class="price">0 €</div><p>Menores de 4 años</p><p>Entrada gratuita acompañados</p></div>
+</div>
+<form class="buybox" id="buyForm"><h3>🎟 Simulador de compra</h3>
+<div class="form-grid">
+<div class="field"><label for="buyer">Nombre completo</label><input id="buyer" required placeholder="Escribe tu nombre"></div>
+<div class="field"><label for="visitDate">Fecha de visita</label><input id="visitDate" type="date" required></div>
+<div class="field"><label for="adults">Adultos · 25 €</label><input id="adults" type="number" min="0" max="20" value="1" required></div>
+<div class="field"><label for="children">Infantiles · 18 €</label><input id="children" type="number" min="0" max="20" value="0" required></div>
+<div class="field full"><label for="babies">Menores de 4 años · Gratis</label><input id="babies" type="number" min="0" max="20" value="0" required></div>
+</div>
+<div class="summary"><p><span>Adultos</span><strong id="adultTotal">25 €</strong></p><p><span>Infantiles</span><strong id="childTotal">0 €</strong></p><p><span>Peques</span><strong>Gratis</strong></p><p class="total"><span>Total estimado</span><strong id="grandTotal">25 €</strong></p></div>
+<button class="btn" type="submit">Confirmar compra de prueba</button>
+<p class="notice">ℹ️ Simulación escolar: no se recogen datos de pago ni se realiza ningún cobro.</p><div id="buyResult" role="status"></div>
+</form></div></section>
+
+<section class="sand" id="restaurante"><div class="container">
+<div class="section-head"><span class="eyebrow">Una pausa deliciosa</span><h2>Restaurante Oasis</h2><p>Recarga energía con algo rico sin salir del ambiente del parque.</p></div>
+<div class="grid-2">
+<div class="card"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=85" alt="Hamburguesa"><div class="card-body"><h3>🍔 Hamburguesas y bocadillos</h3><p>Opciones clásicas para recuperar fuerzas después de los toboganes.</p><div class="menu-item"><strong>Hamburguesa clásica</strong><span>9 €</span></div><div class="menu-item"><strong>Bocadillo mixto</strong><span>6 €</span></div><div class="menu-item"><strong>Patatas</strong><span>3 €</span></div></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=1000&q=85" alt="Pizza"><div class="card-body"><h3>🍕 Pizzas, helados y bebidas</h3><p>Algo para compartir o un capricho refrescante.</p><div class="menu-item"><strong>Pizza individual</strong><span>8 €</span></div><div class="menu-item"><strong>Helado</strong><span>3 €</span></div><div class="menu-item"><strong>Refresco o agua</strong><span>2 €</span></div></div></div>
+</div><p style="text-align:center;color:var(--muted);margin-top:18px;font-size:.85rem">Menú y precios ficticios para el proyecto.</p>
+</div></section>
+
+<section class="soft" id="aquadance"><div class="container">
+<div class="section-head"><span class="eyebrow">Cuando cae el sol...</span><h2>Mini Discoteca AquaDance</h2><p>La música también forma parte de la aventura. ¡Saca tus mejores pasos!</p></div>
+<div class="feature"><img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1000&q=85" alt="Fiesta con luces y música">
+<div><span class="card-tag">Ritmo y diversión</span><h2>¡Que no pare la música!</h2><p>Un espacio de baile con sesiones musicales, juegos y fiestas temáticas para disfrutar en grupo.</p>
+<div class="schedule"><h3>Agenda de ejemplo</h3><div class="slot"><span>Mini disco familiar</span><strong>17:00</strong></div><div class="slot"><span>Juegos musicales</span><strong>18:00</strong></div><div class="slot"><span>Sesión AquaDance</span><strong>19:00</strong></div><div class="slot"><span>Fiesta de despedida</span><strong>19:45</strong></div></div>
+</div></div></div></section><section id="servicios"><div class="container">
+<div class="section-head"><span class="eyebrow">Todo pensado para ti</span><h2>Servicios del parque</h2><p>Pequeños detalles para que tu visita sea más cómoda.</p></div>
+<div class="perks">
+<div class="perk"><div class="emoji">🔐</div><h3>Taquillas</h3><p>Espacio para guardar tus pertenencias.</p></div>
+<div class="perk"><div class="emoji">🚿</div><h3>Vestuarios</h3><p>Zona para cambiarte y ducharte.</p></div>
+<div class="perk"><div class="emoji">🌴</div><h3>Zonas de sombra</h3><p>Descansa entre una aventura y otra.</p></div>
+<div class="perk"><div class="emoji">🛟</div><h3>Socorristas</h3><p>Personal de vigilancia en las zonas acuáticas.</p></div>
+<div class="perk"><div class="emoji">🍽️</div><h3>Restaurante</h3><p>Comida y bebidas para reponer fuerzas.</p></div>
+<div class="perk"><div class="emoji">🅿️</div><h3>Aparcamiento</h3><p>Consulta las opciones de acceso y estacionamiento.</p></div>
+<div class="perk"><div class="emoji">♿</div><h3>Accesibilidad</h3><p>Consulta al personal sobre los accesos disponibles.</p></div>
+<div class="perk"><div class="emoji">ℹ️</div><h3>Atención</h3><p>Ayuda e información para los visitantes.</p></div>
+</div></div></section>
+
+<section class="sand" id="eventos"><div class="container">
+<div class="section-head"><span class="eyebrow">Celebra a lo grande</span><h2>Eventos y cumpleaños</h2><p>Convierte un día especial en una aventura para recordar.</p></div>
+<div class="grid-3">
+<article class="card"><img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=85" alt="Decoración de cumpleaños"><div class="card-body"><h3>🎂 Cumpleaños</h3><p>Una celebración imaginaria con amigos, juegos y mucha diversión.</p></div></article>
+<article class="card"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=85" alt="Festival"><div class="card-body"><h3>🎉 Fiestas temáticas</h3><p>Días especiales con decoración, música y actividades.</p></div></article>
+<article class="card"><img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=800&q=85" alt="Celebración en grupo"><div class="card-body"><h3>👨‍👩‍👧‍👦 Grupos</h3><p>Ideas para disfrutar de una jornada diferente en compañía.</p></div></article>
+</div></div></section>
+
+<section id="galeria"><div class="container">
+<div class="section-head"><span class="eyebrow">Un vistazo al verano</span><h2>Galería OasisAqua</h2><p>Imágenes de inspiración para imaginar tu visita.</p></div>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1562347810-18a5b7b3a6b7?auto=format&fit=crop&w=900&q=85" alt="Toboganes acuáticos">
+<img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=700&q=85" alt="Piscina azul">
+<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=700&q=85" alt="Agua del mar">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=85" alt="Playa">
+<img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=700&q=85" alt="Fiesta musical">
+</div></div></section>
+
+<section class="soft" id="info"><div class="container">
+<div class="section-head"><span class="eyebrow">Antes de venir</span><h2>Información útil</h2><p>Prepara tu visita y disfruta con tranquilidad.</p></div>
+<div class="grid-2">
+<div class="card"><div class="card-body"><h3>🕒 Horarios orientativos</h3><div class="menu-item"><strong>Apertura del parque</strong><span>10:00</span></div><div class="menu-item"><strong>Cierre del parque</strong><span>20:00</span></div><div class="menu-item"><strong>Temporada</strong><span>Verano</span></div><p class="notice">Horarios ficticios para el proyecto; podrían variar.</p></div></div>
+<div class="card"><div class="card-body"><h3>🎒 ¿Qué llevar?</h3><ul class="checks"><li>Bañador y toalla</li><li>Protección solar</li><li>Chanclas y ropa cómoda</li><li>Ganas de pasarlo bien</li></ul></div></div>
+</div></div></section>
+
+<section id="faq"><div class="container">
+<div class="section-head"><span class="eyebrow">Resolvemos tus dudas</span><h2>Preguntas frecuentes</h2><p>Algunas respuestas rápidas para organizar tu día.</p></div>
+<div class="faq">
+<details><summary>¿OasisAqua es un parque real?</summary><p>No. Esta web es un proyecto escolar de ejemplo y presenta un parque acuático imaginario.</p></details>
+<details><summary>¿Puedo comprar entradas de verdad?</summary><p>No. El formulario es una simulación: no realiza pagos ni reserva entradas reales.</p></details>
+<details><summary>¿Dónde estaría ubicado?</summary><p>El proyecto sitúa OasisAqua en Retamar, Almería.</p></details>
+<details><summary>¿Hay restaurante y mini discoteca?</summary><p>Sí, aparecen como zonas imaginarias del parque en esta página.</p></details>
+<details><summary>¿Los precios y horarios son reales?</summary><p>No. Son datos ficticios creados para mostrar cómo podría organizarse la web.</p></details>
+</div></div></section>
+
+<section id="ubicacion"><div class="container">
+<div class="section-head"><span class="eyebrow">Ven a conocernos</span><h2>Estamos en Retamar</h2><p>OasisAqua es un parque ficticio situado en Retamar, Almería, dentro de este proyecto escolar.</p></div>
+<div class="mapbox"><div class="map-icon">📍</div><h3>Retamar · Almería</h3><p>Ubicación ilustrativa. No corresponde a una dirección real del parque.</p></div>
+</div></section>
+
+<section class="soft" id="contacto"><div class="container">
+<div class="contact">
+<h2>¿Tienes alguna pregunta?</h2>
+<p>Envíanos un mensaje de prueba usando este formulario. No se envía a ningún servidor.</p>
+<form id="contactForm">
+<div class="form-grid">
+<div class="field"><label for="contactName">Nombre</label><input id="contactName" required placeholder="Tu nombre"></div>
+<div class="field"><label for="contactEmail">Correo electrónico</label><input id="contactEmail" type="email" required placeholder="tunombre@ejemplo.com"></div>
+<div class="field full"><label for="contactMessage">Mensaje</label><textarea id="contactMessage" rows="4" required placeholder="Escribe aquí tu mensaje"></textarea></div>
+</div>
+<button class="btn coral" type="submit">Enviar mensaje de prueba</button>
+<div id="contactResult" role="status"></div>
+</form>
+</div></div></section>
+</main>
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div><a class="logo" href="#inicio" style="color:#fff">www.OasisAqua.com 🌊</a><p style="margin-top:12px">Un oasis de diversión, agua y música en Retamar, Almería. Proyecto escolar ficticio.</p></div>
+<div><h3>Explora</h3><a href="#atracciones">Atracciones</a><a href="#entradas">Entradas</a><a href="#restaurante">Restaurante</a><a href="#aquadance">AquaDance</a></div>
+<div><h3>Información</h3><a href="#info">Horarios</a><a href="#faq">Preguntas frecuentes</a><a href="#ubicacion">Ubicación</a><a href="#contacto">Contacto</a></div>
+</div>
+<div class="copyright">© 2026 www.OasisAqua.com · Proyecto escolar ficticio. Todos los datos son de demostración.</div>
+</div>
+</footer><script>
+const adultsInput = document.getElementById('adults');
+const childrenInput = document.getElementById('children');
+const babiesInput = document.getElementById('babies');
+
+function getCount(input) {
+  const value = Number.parseInt(input.value, 10);
+  if (!Number.isFinite(value) || value < 0) return 0;
+  return Math.min(value, 20);
+}
+
+function euro(value) {
+  return value.toLocaleString('es-ES', {
+    style: 'currency',
+    currency: 'EUR',
+    maximumFractionDigits: 0
+  });
+}
+
+function updateTotal() {
+  const adults = getCount(adultsInput);
+  const children = getCount(childrenInput);
+  const totalAdults = adults * 25;
+  const totalChildren = children * 18;
+  document.getElementById('adultTotal').textContent = euro(totalAdults);
+  document.getElementById('childTotal').textContent = euro(totalChildren);
+  document.getElementById('grandTotal').textContent = euro(totalAdults + totalChildren);
+}
+
+[adultsInput, childrenInput, babiesInput].forEach(input => {
+  input.addEventListener('input', updateTotal);
+});
+
+document.getElementById('buyForm').addEventListener('submit', event => {
+  event.preventDefault();
+
+  const name = document.getElementById('buyer').value.trim();
+  const date = document.getElementById('visitDate').value;
+  const adults = getCount(adultsInput);
+  const children = getCount(childrenInput);
+  const babies = getCount(babiesInput);
+  const total = adults * 25 + children * 18;
+
+  const result = document.getElementById('buyResult');
+  result.style.display = 'block';
+  result.textContent =
+    `¡Gracias, ${name}! Tu compra de prueba para el ${date} está preparada. ` +
+    `Entradas: ${adults + children + babies}. Total simulado: ${euro(total)}. ` +
+    `No se ha realizado ningún pago ni reserva real.`;
+});
+
+document.getElementById('contactForm').addEventListener('submit', event => {
+  event.preventDefault();
+  const name = document.getElementById('contactName').value.trim();
+  const result = document.getElementById('contactResult');
+  result.style.display = 'block';
+  result.textContent =
+    `¡Gracias, ${name}! Este mensaje es una demostración y no se ha enviado.`;
+});
+
+const today = new Date();
+const localDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+  .toISOString()
+  .slice(0, 10);
+document.getElementById('visitDate').min = localDate;
+
+updateTotal();
+</script>
+</body>
+</html>
